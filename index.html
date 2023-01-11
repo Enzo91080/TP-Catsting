@@ -1,0 +1,43 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css">
+    <title>Navigation bar</title>
+  </head>
+  <body>
+    <header>
+      <div id="brand">Catsting</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="annecdotes.html">Annecdote</a></li>
+          <li><a href="">Race</a></li>
+        </ul>
+        <div class="dark-light">
+          <i class='bx bx-moon moon'></i>
+          <i class='bx bx-sun sun'></i>
+        </div>
+      </nav>
+      <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+        <ul class="mobile-menu">
+          <div class="dark-light">
+            <i class='bx bx-moon moon'></i>
+            <i class='bx bx-sun sun'></i>
+          </div>
+          <li><a href="">Accueil</a></li>
+          <li><a href="">Annecdote</a></li>
+          <li><a href="">Race</a></li>
+        </ul>
+      </div>
+    </header>
+    <!-- Container avec 3 cartes -->
+
+    <script src="script.js"></script>
+  </body>
+</html>
