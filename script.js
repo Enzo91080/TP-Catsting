@@ -1,30 +1,47 @@
-function toggleMobileMenu(menu) {
-    menu.classList.toggle("open");
-}
-function darkTheme() {
+function init() {
+    darkTheme();
+    // Affichage accueil
+    recupNbAnnecdote();
+    recupNbRaces();
+    // Affichage annecdotes
 
-    const body = document.querySelector("body"),
-    nav = document.querySelector("nav"),
-    modeToggle = document.querySelector(".dark-light");
-
-let getMode = localStorage.getItem("mode");
-if (getMode && getMode === "dark-mode") {
-    body.classList.add("dark");
+    recupAnecdote();
 }
 
-// js code to toggle dark and light mode
-modeToggle.addEventListener("click", () => {
-    modeToggle.classList.toggle("active");
-    body.classList.toggle("dark");
+init();
 
-    // js code to keep user selected mode even page refresh or file reopen
-    if (!body.classList.contains("dark")) {
-        localStorage.setItem("mode", "light-mode");
-    } else {
-        localStorage.setItem("mode", "dark-mode");
-    }
-});
+function sendRequest(url) {
+    return new Promise((resolve, reject) => {
+        let requete = new XMLHttpRequest();
+        requete.open("GET", url);
+        requete.onload = function () {
+            if (requete.status === 200) {
+                let response = JSON.parse(requete.responseText);
+                resolve(response);
+            } else {
+                reject("Une erreur est survenue");
+            }
+        };
+        requete.send();
+    });
 }
 
-darkTheme();
-  
+// Récupération du nombre d'anecdotes
+function recupNbAnnecdote() {
+    sendRequest("https://catfact.ninja/facts").then((response) => {
+        let anecdotes = document.querySelector(".nbAnnecdotes");
+        nbAnnecdote = response;
+        anecdotes.textContent = nbAnnecdote.total;
+    });
+}
+
+// Récupération du nombre de races
+function recupNbRaces() {
+    sendRequest("https://catfact.ninja/breeds").then((response) => {
+        let races = document.querySelector(".nbRaces");
+        nbRaces = response;
+        races.textContent = nbRaces.total;
+    });
+}
+
+

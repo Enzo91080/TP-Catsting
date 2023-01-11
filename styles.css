@@ -154,3 +154,41 @@ ul li {
 
   }
 }
+
+
+/* ACCUEIL SECTION AVEC 3 CARDS  */
+
+section {
+	margin: 65px;
+}
+/* Create a responsive, centered, three-column grid. */
+.card-container {
+	align-items: start;
+	display: grid;
+	grid-gap: 47px;
+	grid-template-columns: repeat(auto-fit, 344px);
+	justify-content: center;
+}
+
+.card {
+	background-color: #343434;
+	border-radius: 5px;
+	color: white;
+	height: 177px;
+	display: flex;
+	text-align: center;
+	text-shadow: 1px 1px 0 #555;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.card h2 {
+	color: #ff7f57;
+	font-size: 18px;
+}
+
+.card p {
+	font-style: italic;
+	font-size: 50px;
+	margin: 1px;
+}
