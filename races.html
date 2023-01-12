@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <html lang="en">
+
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css">
+        <title> Catsting</title>
+      </head>
+
+      <body>
+        <header>
+          <div id="brand">Catsting</div>
+          <nav>
+            <ul class="menu">
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="anecdotes.html">Annecdote</a></li>
+              <li><a href="">Race</a></li>
+            </ul>
+            <div class="dark-light">
+              <i class='bx bx-sun'></i>
+              <i class='bx bxs-sun sun'></i>
+            </div>
+          </nav>
+          <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+            <ul class="mobile-menu">
+              <div class="dark-light">
+            <i class='bx bx-sun'></i>
+          <i class='bx bxs-sun sun'></i>
+        </div>
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="anecdotes.html">Anecdote</a></li>
+              <li><a href="races.html">Race</a></li>
+            </ul>
+          </div>
+        </header>
+        <div class="container_content">
+          <div class="bloc_left">
+            <div class="title_result">
+              <h1>Races</h1>
+              <span class="resultats"></p>
+            </div>
+
+            <div class="selection">
+              <select class="selectionPays" onchange="filtrageRaceParPays()">
+                <option value="default">Par pays</option>
+              </select>
+              <select name="" class="selectionPelage" onchange="selectionRaceParPelage()">
+                <option value="default">Par pelage</option>
+              </select>
+            </div>
+            <ul class="listeRaces">
+            </ul>
+          </div>
+
+          <div class="bloc_right">
+            <div class="title_result">
+              <h1>d</h1>
+              <p>Pays : </p>
+              <p>Origine : </p>
+              <p>Pelage : </p>
+
+            </div>
+          </div>
+        </div>
+        <script src="./assets/script_races.js"></script>
+        <script src="./assets/theme.js"></script>
+      </body>
+
+    </html>

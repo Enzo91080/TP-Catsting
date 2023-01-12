@@ -32,9 +32,6 @@ function init() {
     recupNbAnnecdote();
     recupNbRaces();
     recupPelageFrequent();
-    // Affichage annecdotes
-
-    recupAnecdote();
 }
 
 init();
@@ -77,19 +74,17 @@ async function recupPelage() {
     return new Promise((resolve) => {
       sendRequest("https://catfact.ninja/breeds").then(async (response) => {
         let lastpage = response.last_page;
-        let arrayPelage = [];
+        let tabPelage = [];
         for (let index = 1; index <= lastpage; index++) {
           let response = await sendRequest(
             "https://catfact.ninja/breeds?page=" + index
           );
   
           response.data.forEach((race) => {
-            arrayPelage.push(race.coat);
+            tabPelage.push(race.coat);
           });
         }
-        // setInterval(() => {
-        // }, 2000);
-        resolve(arrayPelage);
+        resolve(tabPelage);
       });
     });
   }
@@ -97,41 +92,23 @@ async function recupPelage() {
 
 async function recupPelageFrequent() {
     let typePelage = document.querySelector(".typePelage");
-    let arrayPelage = await recupPelage();
+    let tabPelage = await recupPelage();
     let nombreMax = 1;
     let nombreActuel = 0;
     let lePlusFrequent;
   
-    for (let i = 0; i < arrayPelage.length; i++) {
-      for (let f = i; f < arrayPelage.length; f++) {
-        if (arrayPelage[i] == arrayPelage[f]) {
+    for (let i = 0; i < tabPelage.length; i++) {
+      for (let f = i; f < tabPelage.length; f++) {
+        if (tabPelage[i] == tabPelage[f]) {
           nombreActuel++;
         }
         if (nombreMax < nombreActuel) {
           nombreMax = nombreActuel;
-          lePlusFrequent = arrayPelage[i];
+          lePlusFrequent = tabPelage[i];
         }
       }
       nombreActuel = 0;
     }
     typePelage.innerHTML = lePlusFrequent;
-  }
-  
-
-
-
-
-
-// Récupération d'une anecdote aléatoire
-function recupAnecdote() {
-    let buttonGetAnecdote = document.querySelector(".getAnecdote");
-    let annecdote = document.querySelector(".anecdoteRandom");
-    buttonGetAnecdote.addEventListener("click", () => {
-        sendRequest("https://catfact.ninja/fact").then((response) => {
-            annecdote.textContent = response.fact;
-        });
-    });
-    
 }
-
   

@@ -28,34 +28,26 @@
         <ul class="mobile-menu">
           <div class="dark-light">
             <i class='bx bx-sun'></i>
-            <i class='bx bxs-sun'></i>
-          </div>
-          <li><a href="">Accueil</a></li>
-          <li><a href="">Anecdote</a></li>
-          <li><a href="">Race</a></li>
+          <i class='bx bxs-sun sun'></i>
+        </div>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="anecdotes.html">Anecdote</a></li>
+          <li><a href="races.html">Race</a></li>
         </ul>
       </div>
     </header>
-    <!-- Container avec 3 cartes -->
-    <section class="card-container">
+    <div class="container">
 
-      <div class="card">
-        <h2>Anecdotes</h2>
-        <p class="nbAnecdotes"></p>
+    <button class="getAnecdote">Afficher une annecdote</button>
+      <div class="cards">
+        <div class="card-item">
+          <div class="card-info">
+            <p class="card-intro anecdoteRandom"></p>
+          </div>
+        </div>
       </div>
     
-      <div class="card">
-        <h2>Races</h2>
-        <p class="nbRaces"></p>
-      </div>
-    
-      <div class="card">
-        <h2>Le pelage le plus fréquent</h2>
-        <p class="typePelage"></p>
-      </div>
-    </section>
-    <script src="./assets/script_home.js"></script>
-    <script src="./assets/theme.js"></script>
-
-  </body>
+    </div>
+    <script src="./assets/script_anecdotes.js"></script>
+    <script src="./assets/theme.js"></script></body>
 </html>
